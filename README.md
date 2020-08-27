@@ -32,32 +32,13 @@
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
 2. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
-3. undefined
-4. undefined
-5. undefined
 <!--END_SECTION:activity-->
 
 ---
 
-### :zap: Github Languages
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ketandutt&layout=compact&hide=html" alt="ketandutt" /></p>
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
----
-
 ### :zap: Github Stats
-<p><img align="left" alt="KetanDutt's Github Stats"  src="https://github-readme-stats.ketandutt.vercel.app/api?username=ketandutt&show_icons=true"/></p>
-<br />
-
-<!-- <img align="left" alt="codeSTACKr's Github Stats" src="https://github-readme-stats.codestackr.vercel.app/api?username=codeSTACKr&show_icons=true&hide_border=true" /> -->
-
+  <img align="left" alt="KetanDutt's Github Stats" src="https://github-readme-stats.ketandutt.vercel.app/api?username=ketandutt&show_icons=true&hide_border=true" />
+  <img align="left" alt="KetanDutt's Most Used Languages" src="https://github-readme-stats.swimmy4days.vercel.app/api/top-langs/?username=ketandutt" />
 
 [linkedin]: https://www.linkedin.com/in/ketan-dutt-006104b7/
 [website]: https://www.linkedin.com/in/ketan-dutt-006104b7/
