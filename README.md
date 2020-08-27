@@ -48,7 +48,7 @@
 ---
 
 ### :zap: Github Stats
-<p><img align="left" alt="KetanDutt's Github Stats"  src="https://github-readme-stats.vercel.app/api?username=ketandutt&show_icons=true"/></p>
+<p><img align="left" alt="KetanDutt's Github Stats"  src="https://github-readme-stats.ketandutt.vercel.app/api?username=ketandutt&show_icons=true"/></p>
 <br />
 
 <!-- <img align="left" alt="codeSTACKr's Github Stats" src="https://github-readme-stats.codestackr.vercel.app/api?username=codeSTACKr&show_icons=true&hide_border=true" /> -->
