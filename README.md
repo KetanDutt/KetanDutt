@@ -38,7 +38,7 @@
 
 ### :zap: Github Stats
   <img align="left" alt="KetanDutt's Github Stats" src="https://github-readme-stats.ketandutt.vercel.app/api?username=ketandutt&show_icons=true&hide_border=true" />
-  <img align="left" alt="KetanDutt's Most Used Languages" src="https://github-readme-stats.swimmy4days.vercel.app/api/top-langs/?username=ketandutt" />
+  <img align="left" alt="KetanDutt's Most Used Languages" src="https://github-readme-stats.ketandutt.vercel.app/api/top-langs/?username=ketandutt" />
 
 [linkedin]: https://www.linkedin.com/in/ketan-dutt-006104b7/
 [website]: https://www.linkedin.com/in/ketan-dutt-006104b7/
