@@ -31,7 +31,7 @@
   
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
-2. undefined
+2. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
 3. undefined
 4. undefined
 5. undefined
