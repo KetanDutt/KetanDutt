@@ -54,7 +54,8 @@
 <br />
 <br />
 <br />
-NOTE: Top languages does not indicate my skill level or something like that, it's a github metric of which languages i have the most code on github, it's a new feature of github-readme-stats
+<br />
+NOTE: Top languages do not indicate my skill level or something like that, it's a GitHub metric of which languages I have the most code on GitHub, it's a new feature of GitHub-readme-stats
 
 [linkedin]: https://www.linkedin.com/in/ketan-dutt-006104b7/
 [website]: https://www.linkedin.com/in/ketan-dutt-006104b7/
