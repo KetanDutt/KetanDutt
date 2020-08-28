@@ -40,6 +40,8 @@
   <img align="left" alt="KetanDutt's Github Stats" src="https://github-readme-stats.ketandutt.vercel.app/api?username=ketandutt&show_icons=true&hide_border=true" />
   <img align="left" alt="KetanDutt's Most Used Languages" src="https://github-readme-stats.ketandutt.vercel.app/api/top-langs/?username=ketandutt" />
 
+<br />
+<br />
 NOTE: Top languages does not indicate my skill level or something like that, it's a github metric of which languages i have the most code on github, it's a new feature of github-readme-stats
 
 [linkedin]: https://www.linkedin.com/in/ketan-dutt-006104b7/
