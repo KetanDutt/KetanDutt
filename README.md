@@ -34,7 +34,7 @@
 ### :zap: Recent Github Activity
   
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
+1. ❗️ Opened issue [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
 2. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
 <!--END_SECTION:activity-->
 
