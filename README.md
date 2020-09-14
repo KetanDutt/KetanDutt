@@ -37,8 +37,8 @@
 1. ❗️ Closed issue [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
 2. 🗣 Commented on [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
 3. ❗️ Opened issue [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
-4. ❗️ Opened issue [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
-5. ❗️ Opened issue [#1936](https://github.com//googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com//googleapis/google-api-php-client)
+4. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
+5. 🗣 Commented on [#23](https://github.com//jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com//jamesgeorge007/github-activity-readme)
 <!--END_SECTION:activity-->
 
 ---
