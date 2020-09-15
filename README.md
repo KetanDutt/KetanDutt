@@ -1,4 +1,5 @@
-<h1 align="center">Hi 👋, I'm Ketan Dutt</h1>
+<h1 align="center">Hi 👋, I'm [Ketan Dutt][website]</h1>
+<h5 align="center">[KetanDutt.github.io][website]</h5>
 <h3 align="center">A passionate developer from India</h3>
 
 [![Linkedin Badge](https://img.shields.io/badge/-KetanDutt-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ketan-dutt-006104b7/)](https://www.linkedin.com/in/ketan-dutt-006104b7/)  [![Gmail Badge](https://img.shields.io/badge/-ketan6196@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:ketan6196@gmail.com)](mailto:ketan6196@gmail.com)  <img src="https://komarev.com/ghpvc/?username=ketandutt&style=flat-square&label=PROFILE+VIEWS" alt="ketandutt" />
@@ -65,5 +66,5 @@
 NOTE: Top languages do not indicate my skill level or something like that, it's a GitHub metric of which languages I have the most code on GitHub, it's a new feature of GitHub-readme-stats
 
 [linkedin]: https://www.linkedin.com/in/ketan-dutt-006104b7/
-[website]: https://www.linkedin.com/in/ketan-dutt-006104b7/
+[website]: https://ketandutt.github.io/
 [godot]: https://www.linkedin.com/in/ketan-dutt-006104b7/
