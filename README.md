@@ -5,10 +5,10 @@
 
 ## I'm a Game Developer and a Web Developer!
 
-- 🔭 I’m currently working on Godot Game Engine and Roku!
+- 🔭 I’m currently working on Godot Game Engine and Roku Game Engine!
 - 🌱 I’m currently learning everything 🤣
 - 👯 I’m looking to collaborate with other game developers
-- 🥅 2020 Goals: Contribute more to Open Source projects
+- 🥅 2021 Goals: Contribute more to Open Source projects
 - ⚡ Fun fact: I love to draw and play guitar / drums
 - 📫 How to reach me **ketan.dutt@yahoo.in**
 
