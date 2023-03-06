@@ -8,7 +8,7 @@
 - 🔭 I’m currently working on Godot Game Engine and Roku Game Engine!
 - 🌱 I’m currently learning everything 😎.
 - 👯 I’m looking to collaborate with other game developers
-- 🥅 2023 Goals: Contribute more to Open Source projects
+- 🥅 Future Goals: Contribute more to Open Source projects
 - ⚡ Fun fact: I love to draw and play guitar / drums
 - 📫 How to reach me **ketan.dutt@yahoo.in**
 
