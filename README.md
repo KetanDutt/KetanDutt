@@ -15,7 +15,7 @@
 ---
 
 ### Languages and Tools:
-[![My Skills](https://skillicons.dev/icons?i=unity,godot,unreal,python,php,java,js,nodejs,html,css,mysql,gitlab,github)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=unity,godot,unreal,python,php,java,js,nodejs,html,css,mysql,gitlab,github)](https://github.com/KetanDutt)
 
 ---
 
