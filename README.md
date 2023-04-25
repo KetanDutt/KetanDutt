@@ -34,7 +34,7 @@
 ### :zap: Github Stats
 <p>
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=ketandutt&show_icons=true&locale=en" alt="ketandutt" />
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=ketandutt&" alt="ketandutt" />
+<!-- <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=ketandutt&" alt="ketandutt" /> -->
 <img align="center" src="https://github-readme-stats.ketandutt.vercel.app/api/top-langs/?username=ketandutt&layout=compact" alt="KetanDutt's Most Used Languages"/>
 </p>
 
