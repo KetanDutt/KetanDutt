@@ -33,10 +33,14 @@
 ---
 
 ### :zap: Github Stats
+<!-- <img align="center" src="https://github-readme-stats.vercel.app/api/wakatime?username=ketandutt" alt="KetanDutt's Most Used Languages"/>  -->
 <p>
-<img align="center" src="https://github-readme-stats.vercel.app/api?username=ketandutt&show_icons=true&locale=en" alt="ketandutt" />
-<!-- <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=ketandutt&" alt="ketandutt" /> -->
-<img align="center" src="https://github-readme-stats.ketandutt.vercel.app/api/top-langs/?username=ketandutt&layout=compact" alt="KetanDutt's Most Used Languages"/>
+  <a>
+    <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=ketandutt&rank_icon=github" />
+  </a>
+  <a>
+    <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ketandutt&layout=compact&langs_count=8&card_width=320" alt="KetanDutt's Most Used Languages"/>
+  </a>
 </p>
 
 NOTE: Top languages do not indicate my skill level or something like that, it's a GitHub metric of which languages I have the most code on GitHub, it's a new feature of GitHub-readme-stats
