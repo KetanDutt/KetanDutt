@@ -80,6 +80,7 @@ I'm a passionate game developer from India who loves building immersive gameplay
 <p align="center">
   <img height="200" src="https://github-readme-stats.vercel.app/api?username=ketandutt&rank_icon=github&show_icons=true&theme=dark&hide_border=true" />
   <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs?username=ketandutt&layout=compact&langs_count=8&card_width=320&theme=dark&hide_border=true" />
+  <img height="200" src="https://github-readme-streak-stats.herokuapp.com/?user=ketandutt&theme=dark&hide_border=true" />
 </p>
 
 <p align="center"><sub>Note: Language stats reflect GitHub repo metrics, not proficiency.</sub></p>
