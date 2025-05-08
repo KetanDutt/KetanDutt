@@ -33,8 +33,8 @@ I'm a passionate game developer from India who loves building immersive gameplay
 | Project | Source | Description | Tech |
 |--------|--------|-------------|------|
 | [Endless Runner Game](https://ketandutt.github.io/RunnerGame_Built/) | [Source](https://github.com/KetanDutt/RunnerGame) | Basic 3D endless runner level prototype | Unity, C# |
-| [Ant Running Game](https://ketandutt.github.io/Ants_Demo/) | [Source](https://github.com/KetanDutt/Ants_Demo) | Ants game - 3D Running level demo | Unity, C# |
-| [Ant Jumping Game](https://ketandutt.github.io/AntsJumping_Demo/) | [Source](https://github.com/KetanDutt/AntsJumping_Demo) | Ants game - 3D Jumping level demo | Unity, C# |
+| [Ant Running Game](https://ketandutt.github.io/Ants_Demo/) | [Source](https://github.com/KetanDutt/SmartyAntsRunning) | Ants game - 3D Running level demo | Unity, C# |
+| [Ant Jumping Game](https://ketandutt.github.io/AntsJumping_Demo/) | [Source](https://github.com/KetanDutt/SmartyAnts) | Ants game - 3D Jumping level demo | Unity, C# |
 | [UNO Game in Godot](https://ketandutt.github.io/UNO_Godot/) | [Source](https://github.com/KetanDutt/UNO_Godot) | A player vs computer UNO game | Godot, GDScript |
 | [Chemistry Game Demo](https://ketandutt.github.io/ChemistryGame/) | [Source](https://github.com/KetanDutt/ChemistryGame-Source) | A game to learn about valence electrons in chemistry | Phaser, JavaScript |
 | [Fighting Game Demo](https://ketandutt.github.io/FightingDemo/) | [Source](https://github.com/KetanDutt/FightingDemo) | Character animation demo for a fighting game | Phaser, JavaScript |
