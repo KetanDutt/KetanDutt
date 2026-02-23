@@ -55,6 +55,10 @@ I'm a passionate game developer from India who loves building immersive gameplay
 
 ## 📈 GitHub Activity
 
+<p align="center">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ketandutt&theme=gruvbox" />
+</p>
+
 <!--START_SECTION:activity-->
 1. ❗️ Closed issue [#1936](https://github.com/googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com/googleapis/google-api-php-client)
 2. 🗣 Commented on [#1936](https://github.com/googleapis/google-api-php-client/issues/1936) in [googleapis/google-api-php-client](https://github.com/googleapis/google-api-php-client)
@@ -63,13 +67,12 @@ I'm a passionate game developer from India who loves building immersive gameplay
 5. 🗣 Commented on [#23](https://github.com/jamesgeorge007/github-activity-readme/issues/23) in [jamesgeorge007/github-activity-readme](https://github.com/jamesgeorge007/github-activity-readme)
 <!--END_SECTION:activity-->
 
-
 <br>
 
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=ketandutt&theme=gruvbox&row=1&no-bg=true&no-frame=true" />
+  <img src="https://github-profile-trophy.screw-hand.vercel.app/?username=ketandutt&theme=gruvbox&row=1&no-bg=true&no-frame=true" />
 </p>
 
 
@@ -78,13 +81,12 @@ I'm a passionate game developer from India who loves building immersive gameplay
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img height="200" src="https://github-readme-stats.vercel.app/api?username=ketandutt&rank_icon=github&show_icons=true&theme=dark&hide_border=true" />
-  <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs?username=ketandutt&layout=compact&langs_count=8&card_width=320&theme=dark&hide_border=true" />
+  <img height="200" src="https://github-readme-stats-fast.vercel.app/api?username=ketandutt&rank_icon=github&show_icons=true&theme=dark&hide_border=true" />
+  <img height="200" src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=ketandutt&layout=compact&langs_count=8&card_width=320&theme=dark&hide_border=true" />
   <img height="200" src="https://github-readme-streak-stats.herokuapp.com/?user=ketandutt&theme=dark&hide_border=true" />
 </p>
 
 <p align="center"><sub>Note: Language stats reflect GitHub repo metrics, not proficiency.</sub></p>
-
 
 <br>
 
