@@ -1,0 +1,291 @@
+# -----------------------------------------------------------------------------
+# Recent-activity feed for the profile README
+# -----------------------------------------------------------------------------
+# ▶ INSTALL (one time, requires an account with "workflows" permission):
+#     1. copy this file to  .github/workflows/update-activity.yml
+#     2. delete the legacy file .github/workflows/update_readme_activity.yml
+#     3. push & run the workflow once from the Actions tab
+#    (The old file pinned a retired third-party action that can no longer
+#     run on GitHub-hosted runners; remove it so it never runs again.)
+#
+# What this workflow does: it keeps the section between the markers
+#   <!--START_SECTION:activity--> ... <!--END_SECTION:activity-->
+# in README.md filled with recent public GitHub activity (pushes, stars,
+# issues, PRs, comments and releases).
+#
+# Why a custom updater?
+#   * Older third-party activity actions (jamesgeorge007/github-activity-readme
+#     v0.1.x, Readme-Workflows/recent-activity) are unmaintained or use the
+#     retired node12/node16 runtime and can no longer run on GitHub runners.
+#   * This updater uses only the official actions/github-script action and the
+#     REST API, lists push events too (the most common activity), merges
+#     "commit flurries" into a single line, and rewrites the whole section, so
+#     it can never leave stale entries behind.
+#   * When nothing changes for a long time it creates an occasional empty
+#     commit so GitHub never disables this scheduled workflow after 60 days of
+#     inactivity (see docs/MAINTENANCE.md).
+#
+# Schedule: every 6 hours + manual trigger.
+# Docs: docs/MAINTENANCE.md
+# -----------------------------------------------------------------------------
+name: Update GitHub Activity
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # allow committing the refreshed README to the repo
+
+concurrency:
+  group: update-activity
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    name: Refresh recent-activity section
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Refresh the recent-activity section of README.md
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const README_PATH = "README.md";
+            const START_MARKER = "<!--START_SECTION:activity-->";
+            const END_MARKER = "<!--END_SECTION:activity-->";
+            const MAX_LINES = 5;
+            // Shown between the markers while there is nothing new to list
+            // (e.g. no public events in the last ~90 days).
+            const NO_ACTIVITY_LINE =
+              "_No recent public GitHub activity to show — busy building behind the scenes! 🛠️_";
+            // Activity we never want to list (this repo itself).
+            const SELF_REPO = `${context.repo.owner}/${context.repo.repo}`;
+            const BRANCH = context.ref.replace(/^refs\/heads\//, "");
+
+            // Event types shown in the feed (newest first, like the Events API).
+            // PushEvent lines are merged when the same repo is pushed to
+            // repeatedly, so a "commit flurry" reads as a single entry.
+            const INCLUDED_EVENT_TYPES = new Set([
+              "PushEvent",
+              "IssuesEvent",
+              "IssueCommentEvent",
+              "PullRequestEvent",
+              "ReleaseEvent",
+              "WatchEvent",
+              "ForkEvent",
+            ]);
+
+            const repoUrl = (repo) => `https://github.com/${repo}`;
+            const mdRepo = (repo) => `[${repo}](${repoUrl(repo)})`;
+            const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : "");
+
+            // Format one raw event into a markdown line, or null if it cannot
+            // be displayed in a meaningful way.
+            function describeEvent(event) {
+              const repo = event.repo && event.repo.name;
+              if (!repo || repo === SELF_REPO) return null;
+              const payload = event.payload || {};
+
+              switch (event.type) {
+                case "PushEvent": {
+                  const ref = payload.ref || "";
+                  if (ref.startsWith("refs/tags/")) {
+                    return `🏷️ Pushed tag \`${ref.slice("refs/tags/".length)}\` to ${mdRepo(repo)}`;
+                  }
+                  return null; // handled by the push-run merger in buildFeed()
+                }
+                case "IssuesEvent": {
+                  const action = payload.action || "updated";
+                  const issue = payload.issue || {};
+                  if (!issue.number || !issue.html_url) return null;
+                  const emoji =
+                    action === "opened" ? "❗️" :
+                    action === "closed" ? "🔒" :
+                    action === "reopened" ? "🔓" : "ℹ️";
+                  return `${emoji} ${cap(action)} issue [#${issue.number}](${issue.html_url}) in ${mdRepo(repo)}`;
+                }
+                case "IssueCommentEvent": {
+                  const issue = payload.issue || {};
+                  const comment = payload.comment || {};
+                  if (!issue.number || !comment.html_url) return null;
+                  return `🗣 Commented on [#${issue.number}](${comment.html_url}) in ${mdRepo(repo)}`;
+                }
+                case "PullRequestEvent": {
+                  const pr = payload.pull_request || {};
+                  if (!pr.number) return null;
+                  const action = payload.action || "updated";
+                  let verb = cap(action);
+                  let emoji = "ℹ️";
+                  if (action === "opened") { verb = "Opened"; emoji = "💪"; }
+                  else if (action === "reopened") { verb = "Reopened"; emoji = "🔄"; }
+                  else if (action === "closed") {
+                    verb = pr.merged ? "Merged" : "Closed";
+                    emoji = pr.merged ? "🎉" : "❌";
+                  }
+                  return `${emoji} ${verb} PR [#${pr.number}](${repoUrl(repo)}/pull/${pr.number}) in ${mdRepo(repo)}`;
+                }
+                case "ReleaseEvent": {
+                  const release = payload.release || {};
+                  const name = release.name || release.tag_name;
+                  if (!name || !release.html_url) return null;
+                  return `🚀 Published release [${name}](${release.html_url}) in ${mdRepo(repo)}`;
+                }
+                case "WatchEvent":
+                  return `⭐ Starred ${mdRepo(repo)}`;
+                case "ForkEvent":
+                  return `🍴 Forked ${mdRepo(repo)}`;
+                default:
+                  return null;
+              }
+            }
+
+            // Build the feed lines from raw events (max MAX_LINES, numbered).
+            // Returns the placeholder line while there is nothing to show.
+            function buildFeed(events) {
+              const lines = [];
+              let run = null; // consecutive-push run: { repo, count }
+
+              const pushLine = (r) =>
+                r.count > 1
+                  ? `📦 Pushed ${r.count}× to ${mdRepo(r.repo)}`
+                  : `📦 Pushed to ${mdRepo(r.repo)}`;
+
+              for (const event of events) {
+                if (!INCLUDED_EVENT_TYPES.has(event.type)) continue;
+                const repo = event.repo && event.repo.name;
+                if (!repo || repo === SELF_REPO) continue;
+
+                if (event.type === "PushEvent") {
+                  const ref = (event.payload && event.payload.ref) || "";
+                  const isTag = ref.startsWith("refs/tags/");
+                  if (!isTag && run && run.repo === repo) {
+                    run.count += 1; // extend the run of pushes to this repo
+                  } else {
+                    if (run) lines.push(pushLine(run));
+                    run = isTag ? null : { repo, count: 1 };
+                  }
+                  continue;
+                }
+
+                if (run) {
+                  lines.push(pushLine(run));
+                  run = null;
+                }
+                const line = describeEvent(event);
+                if (line) lines.push(line);
+              }
+              if (run) lines.push(pushLine(run));
+
+              if (!lines.length) return [NO_ACTIVITY_LINE];
+              return lines
+                .slice(0, MAX_LINES)
+                .map((line, i) => `${i + 1}. ${line}`);
+            }
+
+            // Read the README and extract the region between the markers.
+            const readmeRes = await github.rest.repos.getContent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: README_PATH,
+              ref: BRANCH,
+            });
+            const readme = Buffer.from(readmeRes.data.content, "base64").toString("utf8");
+            const readmeSha = readmeRes.data.sha;
+
+            const startIdx = readme.indexOf(START_MARKER);
+            const endIdx = readme.indexOf(END_MARKER);
+            if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
+              core.setFailed(
+                `Could not find both activity markers (${START_MARKER} / ${END_MARKER}) in ${README_PATH}. ` +
+                  "Restore them to keep the feed working (see docs/MAINTENANCE.md)."
+              );
+              return;
+            }
+
+            // Fetch recent public events (the API returns ~90 days of them;
+            // one page of 100 events is plenty for a personal feed).
+            let events = [];
+            try {
+              const eventsRes = await github.rest.activity.listPublicEventsForUser({
+                username: context.repo.owner,
+                per_page: 100,
+              });
+              events = eventsRes.data;
+            } catch (error) {
+              core.warning(`Could not fetch public events: ${error.message}`);
+              core.info("Skipping this run; the next scheduled run will retry.");
+              return;
+            }
+
+            const feed = buildFeed(events);
+
+            const oldBody = readme.slice(startIdx + START_MARKER.length, endIdx);
+            const newBody = "\n" + feed.join("\n") + "\n";
+
+            const commitInfo = {
+              name: "github-actions[bot]",
+              email: "41898282+github-actions[bot]@users.noreply.github.com",
+            };
+
+            if (oldBody !== newBody) {
+              // Publish the refreshed section.
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: README_PATH,
+                message: "📊 Update recent GitHub activity",
+                content: Buffer.from(
+                  readme.slice(0, startIdx + START_MARKER.length) +
+                    newBody +
+                    readme.slice(endIdx),
+                  "utf8"
+                ).toString("base64"),
+                sha: readmeSha,
+                branch: BRANCH,
+                committer: commitInfo,
+                author: commitInfo,
+              });
+              core.info("README activity section refreshed and committed.");
+              return;
+            }
+
+            // No change. GitHub disables scheduled workflows after ~60 days
+            // without repository activity, so push a rare empty commit to keep
+            // this workflow alive when the section has been quiet for a while.
+            const head = await github.rest.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `heads/${BRANCH}`,
+            });
+            const headCommit = await github.rest.git.getCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: head.data.object.sha,
+            });
+            const lastCommitMs = Date.parse(headCommit.data.committer.date);
+            const ageDays = (Date.now() - lastCommitMs) / (1000 * 60 * 60 * 24);
+
+            if (ageDays > 50) {
+              const empty = await github.rest.git.createCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                message: ":memo: Empty commit to keep the activity workflow active",
+                tree: headCommit.data.tree.sha,
+                parents: [head.data.object.sha],
+                author: commitInfo,
+                committer: commitInfo,
+              });
+              await github.rest.git.updateRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `heads/${BRANCH}`,
+                sha: empty.data.sha,
+              });
+              core.info("No feed change; pushed keep-alive commit.");
+            } else {
+              core.info(
+                `No feed change and last commit is only ${Math.round(ageDays)} days old; nothing to do.`
+              );
+            }
